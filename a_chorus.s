@@ -13,10 +13,9 @@
 
 #define delay_cycles __delay_cycles
 
-	;;  Function prototypes
 
 	.sect ".text:buzzer_init"
-main:			; Configure clocks
+main:		
 
 	mov.w   #WDTPW, r15
 
@@ -36,15 +35,13 @@ main:			; Configure clocks
 
 
 
-	;;  Play "Yellow Submarine"
-
+	;;  Play note
 	call    #play_song
 
 	mov.w   #__stack_end, SP
 
 
-        ;;  Configure clocks
-
+      
 	mov.w   #WDTPW, r15
 
 	bis.w   #WDTHOLD, r15
@@ -57,7 +54,6 @@ main:			; Configure clocks
 	call    #configureClocks
 
 
-	;;  Initialize buzzer
 
 	call    #buzzer_init
 
@@ -74,11 +70,11 @@ buzzer_init:
 
 buzzer_set_period:
 
-	mov.w   r15, r13 ; Copy cycles to CCR0
+	mov.w   r15, r13 
 
-	mov.w   r15, r14 ; Copy cycles to CCR1
+	mov.w   r15, r14 
 
-	rrc     r14	; CCR1 = cycles >> 1
+	rrc     r14
 
 	rrc     r14
 
@@ -128,7 +124,6 @@ play_chorus:
 
         call    #play_note_A
 
-	;;  Add calls for other notes as needed
 
 	ret
 	
