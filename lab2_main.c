@@ -2,10 +2,11 @@
 #include "libTimer.h"
 #include "buzzer.h"
 #include "a_chorus.h"
-
+#include "led.h"
 
 #define A 2272
 #define E 3024
+#define E4 1516
 #define D 1702
 #define G 2551
 #define B 2028
@@ -14,7 +15,7 @@
 #define PAUSE 0
 
 #define BUTTON1 BIT0
-#define BUTTON2 BIT1
+#define BUTTON2 BIT2
 
 void button_init() {
 
@@ -43,6 +44,7 @@ int main(){
   while(1) {
 
     if (button_down()) {
+      
       
       buzzer_set_period(B); __delay_cycles(2000000);//IN
       buzzer_set_period(PAUSE); __delay_cycles(4000000);
@@ -92,10 +94,10 @@ int main(){
       buzzer_set_period(A); __delay_cycles(8000000);//
       buzzer_set_period(PAUSE); __delay_cycles(1000000);
     }
-    else if(button2_down){
+    else if(button2_down()) {
       buzzer_set_period(D); __delay_cycles(2000000);//WE
       buzzer_set_period(PAUSE); __delay_cycles(8000000);
-      
+     
       buzzer_set_period(D); __delay_cycles(2000000);//ALL
       buzzer_set_period(PAUSE); __delay_cycles(8000000);
       
@@ -103,57 +105,55 @@ int main(){
       buzzer_set_period(PAUSE); __delay_cycles(8000000);
 
       buzzer_set_period(D); __delay_cycles(2000000);//IN
-      buzzer_set_period(PAUSE); __delay_cycles(8000000);
-
-      buzzer_set_period(E); __delay_cycles(2000000);//A
       buzzer_set_period(PAUSE); __delay_cycles(4000000);
+
+      buzzer_set_period(E4); __delay_cycles(2000000);//A
+      buzzer_set_period(PAUSE); __delay_cycles(2000000);
 
       buzzer_set_period(A); __delay_cycles(2000000);//YE
-      buzzer_set_period(PAUSE); __delay_cycles(8000000);
+      buzzer_set_period(PAUSE); __delay_cycles(4000000);
 
       buzzer_set_period(A); __delay_cycles(2000000);//LLOW
-      buzzer_set_period(PAUSE); __delay_cycles(4000000);
+      buzzer_set_period(PAUSE); __delay_cycles(2000000);
 
       buzzer_set_period(A); __delay_cycles(2000000);//SUB
-      buzzer_set_period(PAUSE); __delay_cycles(8000000);
-
-      buzzer_set_period(A); __delay_cycles(2000000);//MA
       buzzer_set_period(PAUSE); __delay_cycles(4000000);
 
+      buzzer_set_period(A); __delay_cycles(2000000);//MA
+      buzzer_set_period(PAUSE); __delay_cycles(2000000);
+
       buzzer_set_period(A); __delay_cycles(2000000);//RIN
-      buzzer_set_period(PAUSE); __delay_cycles(10000000);
+      buzzer_set_period(PAUSE); __delay_cycles(15000000);
 
       buzzer_set_period(A); __delay_cycles(2000000);//YE
-      buzzer_set_period(PAUSE); __delay_cycles(8000000);
+      buzzer_set_period(PAUSE); __delay_cycles(4000000);
 
       buzzer_set_period(A); __delay_cycles(2000000);//LLOW
-      buzzer_set_period(PAUSE); __delay_cycles(4000000);
+      buzzer_set_period(PAUSE); __delay_cycles(2000000);
 
       buzzer_set_period(A); __delay_cycles(2000000);//SUB
-      buzzer_set_period(PAUSE); __delay_cycles(8000000);
-
-      buzzer_set_period(A); __delay_cycles(2000000);//MA
       buzzer_set_period(PAUSE); __delay_cycles(4000000);
 
+      buzzer_set_period(A); __delay_cycles(2000000);//MA
+      buzzer_set_period(PAUSE); __delay_cycles(2000000);
+
       buzzer_set_period(A); __delay_cycles(2000000);//RIN
-      buzzer_set_period(PAUSE); __delay_cycles(10000000);
+      buzzer_set_period(PAUSE); __delay_cycles(15000000);
 
       buzzer_set_period(G); __delay_cycles(2000000);//YE
-      buzzer_set_period(PAUSE); __delay_cycles(8000000);
-
-      buzzer_set_period(G); __delay_cycles(2000000);//LLOW
       buzzer_set_period(PAUSE); __delay_cycles(4000000);
 
-      buzzer_set_period(G); __delay_cycles(8000000);//SUB
+      buzzer_set_period(G); __delay_cycles(2000000);//LLOW
+      buzzer_set_period(PAUSE); __delay_cycles(2000000);
+
+      buzzer_set_period(G); __delay_cycles(2000000);//SUB
       buzzer_set_period(PAUSE); __delay_cycles(4000000);
 
       buzzer_set_period(G); __delay_cycles(2000000);//MA
-      buzzer_set_period(PAUSE); __delay_cycles(4000000);
+      buzzer_set_period(PAUSE); __delay_cycles(2000000);
 
       buzzer_set_period(G); __delay_cycles(2000000);//RIN
       buzzer_set_period(PAUSE); __delay_cycles(10000000);
-
-
       
     }
     else {

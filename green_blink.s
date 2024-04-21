@@ -6,8 +6,6 @@
 
 
 
-
-
 	.global greenControl
 
 	.extern P1OUT
@@ -20,10 +18,10 @@ greenControl:
 
 	jz off
 
-	bis #64, &P1OUT		;or
+	bis #BIT6, &P1OUT	; Set P1.6 (green LED) high to turn it on
 
 	pop r0
 
-off:		and #~64, &P1OUT
+off:		and #~BIT6, &P1OUT ; Clear P1.6 (green LED) to turn it off
 
 	pop r0
